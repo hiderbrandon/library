@@ -5,7 +5,7 @@ from django.urls import URLPattern, path
 from .views import BookAPIView 
 
 urlpatterns = [
-    path("", BookAPIView.as_view() ),
+    path("", BookAPIView.as_view(), name="book_list"),
     
 ]
 
