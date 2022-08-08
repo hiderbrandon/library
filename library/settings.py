@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
-
+import dj_database_url
 # Initialise environment Variables
 env = environ.Env()
 environ.Env.read_env()
@@ -138,3 +138,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES":
     ["rest_framework.permissions.AllowAny", ],
 }
+
+# Heroku: Update database configuration from $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
