@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "corsheaders",
     # local
     'api.apps.ApiConfig',
     "accounts.apps.AccountsConfig",
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -162,3 +164,7 @@ DATABASES['default'].update(db_from_env)
 
 # user auth
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+
+# CORS CONFIG
+CORS_ALLOW_ALL_ORIGINS = True
