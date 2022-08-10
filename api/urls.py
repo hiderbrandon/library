@@ -8,6 +8,7 @@ urlpatterns = [
     path("", BookAPIView.as_view(), name="book_list" ),
     path("<int:pk>/", DetailBook.as_view(), name="book_detail"),
     path("dj-rest-auth/", include("dj_rest_auth.urls")),
+    path("dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
 
 ]
 
