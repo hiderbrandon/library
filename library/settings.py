@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import environ
 import dj_database_url
+from corsheaders.defaults import default_methods
+
 
 # Initialise environment Variables
 env = environ.Env()
@@ -168,3 +170,4 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 # CORS CONFIG
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = list(default_methods)
